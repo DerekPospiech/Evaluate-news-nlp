@@ -1,8 +1,37 @@
 var path = require('path')
 const express = require('express')
 const mockAPIResponse = require('./mockAPI.js')
+const dotenv = require('dotenv');
+dotenv.config();
 
-const app = express()
+// Setup empty JS object to act as endpoint for all routes
+projectData = {};
+
+//required aylien package
+var aylien = require("aylien_textapi");
+
+// set aylien API credentias
+var textapi = new aylien({
+    application_id: process.env.API_ID,
+    application_key: process.env.API_KEY
+  });
+
+// Require Express to run server and routes
+const express = require('express');
+
+// Start up an instance of app
+const app = express();
+
+/* Middleware*/
+var bodyParser = require('body-parser');
+
+//Here we are configuring express to use body-parser as middle-ware.
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+
+// Cors for cross origin allowance
+const cors = require('cors');
+app.use(cors());
 
 app.use(express.static('dist'))
 
