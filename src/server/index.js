@@ -1,6 +1,5 @@
 var path = require('path')
 const express = require('express')
-const mockAPIResponse = require('./mockAPI.js')
 const dotenv = require('dotenv');
 dotenv.config();
 
@@ -16,8 +15,6 @@ var textapi = new aylien({
     application_key: process.env.API_KEY
   });
 
-// Require Express to run server and routes
-const express = require('express');
 
 // Start up an instance of app
 const app = express();
@@ -47,6 +44,21 @@ app.listen(8081, function () {
     console.log('Example app listening on port 8081!')
 })
 
-app.get('/test', function (req, res) {
-    res.send(mockAPIResponse)
+app.get('/sentiment', function (req, res) {
+    res.send(projectData)
+})
+
+app.post('/', function (req, res) {
+
+    textapi.sentiment({
+        text: req.body.text,
+        }, function(error, response) {
+        if (error === null) {
+          console.log(response);
+            projectData = response;
+         // console.log(projectData)
+        }
+        });
+        return
+
 })
