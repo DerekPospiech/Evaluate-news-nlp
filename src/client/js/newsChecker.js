@@ -29,7 +29,6 @@ function checkForNews(inputText) {
         document.getElementById('polarity').innerHTML = response.polarity
         document.getElementById('text').innerHTML = response.text
         document.getElementById('subjectivity').innerHTML = response.subjectivity
-  // Dear student, you should create different UI elements to show different attributes of result such as polarity, text, subjectivity 
       })
     }
 
