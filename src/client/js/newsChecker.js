@@ -10,7 +10,7 @@ function checkForNews(inputText) {
           headers: {
             'Content-Type': 'application/json'
           },
-          body: JSON.stringify(data) 
+          body: JSON.stringify({text:data})  
         });
     
         try {
@@ -23,8 +23,12 @@ function checkForNews(inputText) {
           }
       }
 
-    postData('/', inputText)
-    console.log(res.text)
-}
+      postData('/', inputText)
+      .then(response=>{
+        console.log("this is the data trying to be outputted into the response section" + response)
+        document.getElementById('results').innerHTML = response.polarity
+  // Dear student, you should create different UI elements to show different attributes of result such as polarity, text, subjectivity 
+      })
+    }
 
 export { checkForNews }

@@ -44,9 +44,6 @@ app.listen(8081, function () {
     console.log('Example app listening on port 8081!')
 })
 
-app.get('/sentiment', function (req, res) {
-    res.send(projectData)
-})
 
 app.post('/', function (req, res) {
 
@@ -56,7 +53,8 @@ app.post('/', function (req, res) {
         if (error === null) {
           console.log(response);
             projectData = response;
-         // console.log(projectData)
+            response.send(projectData)
+          console.log("this is the data being sent from the server: " + projectData)
         }
         });
         return
