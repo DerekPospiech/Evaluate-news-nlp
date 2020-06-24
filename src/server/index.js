@@ -53,7 +53,6 @@ app.post('/', function (req, res) {
         if (error === null) {
           console.log(response)
             res.send(response)
-          console.log("this is the data being sent from the server: " + projectData)
         }
         });
         return

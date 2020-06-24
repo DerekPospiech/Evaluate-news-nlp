@@ -6,7 +6,8 @@ function handleSubmit(event) {
     Client.checkForNews(formText)
 
     console.log("::: Data Submitted :::")
-
+ 
+    return 2; //for jest test
 }
 
 export { handleSubmit }

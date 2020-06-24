@@ -26,9 +26,9 @@ function checkForNews(inputText) {
       postData('/', inputText)
       .then(response=>{
         console.log("this is the data trying to be outputted into the response section " + response)
-        document.getElementById('polarity').innerHTML = response.polarity
-        document.getElementById('text').innerHTML = response.text
-        document.getElementById('subjectivity').innerHTML = response.subjectivity
+        document.getElementById('polarity').innerHTML = response.polarity;
+        document.getElementById('text').innerHTML = response.text;
+        document.getElementById('subjectivity').innerHTML = response.subjectivity;
       })
     }
 
