@@ -3,8 +3,12 @@ import { handleSubmit } from "./formHandler";
 const { TestScheduler } = require('jest');
 
 
-/*test('Checking Valid value', () => {
-    expect(handleSubmit('click')).toBe(2);
-});*/
+const editButton = document.createElement('button');
+editButton.setAttribute('class', 'edit');
+document.getElementById('edit').addEventListener('click');
 
-test( 'Checking sum', () => {  expect(1 + 2).toBe(3); });
+test('Checking Valid value', () => {
+    expect(handleSubmit(document.getElementById('edit').click())).toBe(2);
+});
+
+//test( 'Checking sum', () => {  expect(1 + 2).toBe(3); });
