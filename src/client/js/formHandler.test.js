@@ -4,11 +4,13 @@ const { TestScheduler } = require('jest');
 
 
 const editButton = document.createElement('button');
-editButton.setAttribute('class', 'edit');
-document.getElementById('edit').addEventListener('click');
+//editButton.setAttribute('id', 'edit');
+//document.getElementById('edit').addEventListener('click');
+editButton.addEventListener('click');
+
 
 test('Checking Valid value', () => {
-    expect(handleSubmit(document.getElementById('edit').click())).toBe(2);
+    expect(handleSubmit(editButton.simulate('click'))).toBe(2);
 });
 
 //test( 'Checking sum', () => {  expect(1 + 2).toBe(3); });
