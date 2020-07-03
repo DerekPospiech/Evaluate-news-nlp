@@ -15,7 +15,6 @@ function handleSubmit(event) {
     }
     console.log("::: Data Submitted :::")
  
-    return 2; //for jest test
 }
 
 export { handleSubmit }
