@@ -1,16 +1,25 @@
 import "@babel/polyfill"
 import { handleSubmit } from "./formHandler";
+import { postData } from "./newsChecker";
+import { checkForNews } from "./newsChecker";
 const { TestScheduler } = require('jest');
 
 
-const editButton = document.createElement('button');
-//editButton.setAttribute('id', 'edit');
-//document.getElementById('edit').addEventListener('click');
-editButton.addEventListener('click');
-
 
 test('Checking Valid value', () => {
-    expect(handleSubmit(editButton.simulate('click'))).toBe(2);
+    document.body.innerHTML = `
+    <input id="search" />
+    <button id="submitButton">Submit</button>
+  `;
+
+    const searchInput = document.getElementById('search');
+    const submitButton = document.getElementById('submitButton');
+    const event = new Event('build');
+
+    searchInput.value = 'Hello!';
+    
+
+    expect(handleSubmit(event)).toBe(2);
 });
 
-//test( 'Checking sum', () => {  expect(1 + 2).toBe(3); });
+
