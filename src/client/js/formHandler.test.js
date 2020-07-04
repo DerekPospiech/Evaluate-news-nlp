@@ -13,7 +13,7 @@ test('Checking Valid value', () => {
     <input id="search"></input>
     <button id="submitButton">Submit</button>
     <div id="polarity"></div>
-    <div id="text"></div>
+    <div id="text">Hello!</div>
     <div id="subjectivity"></div>
   `;
 
